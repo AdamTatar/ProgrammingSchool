@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.List;
 
 public interface StudentDao {
@@ -7,7 +8,7 @@ public interface StudentDao {
 	Student updateStudent(Student student);
 	boolean deleteStudent(Student student);
 
-	List<Student> getAllStudents();
-	Student getById(Integer studentId);
+	List<Student> getAllStudents() throws SQLException;
+	Student getStudentById(Integer studentId);
 	
 }

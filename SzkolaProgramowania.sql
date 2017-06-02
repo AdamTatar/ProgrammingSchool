@@ -1,12 +1,12 @@
 use coderslab;
 
-
+ALTER DATABASE `coderslab` DEFAULT CHARACTER SET utf8 COLLATE utf8_polish_ci;
 
 create table student (
 `studentId` int(10) unsigned NOT NULL AUTO_INCREMENT,
 `studentName` varchar(255) DEFAULT 'imie studenta',
 `studentSurname` varchar(255) DEFAULT 'nazwisko studenta',
-`studentEmail` varchar(255) DEFAULT 'email@studenta',
+`studentEmail` varchar(255) DEFAULT 'email@studenta',				#czy założyć UNIQUE na email?
 `studentLogin` varchar(255) DEFAULT 'login studenta',
 PRIMARY KEY (`studentId`)
 );
@@ -35,6 +35,11 @@ FOREIGN KEY (`studentId`) REFERENCES student(`studentId`),
 FOREIGN KEY (`groupId`) REFERENCES `group`(`groupId`)
 );
 
+drop table studentGroup;
+drop table `group`;
+drop table solution;
+drop table student;
+
 
 
 describe student;
@@ -43,7 +48,8 @@ describe `group`;
 describe studentGroup;
 
 
-insert into student (studentName) values ('Imie');
+insert into student (studentName) values ('ąśżźćńłóę');
+insert into student (studentName) values ('ędwardącki');
 insert into solution (solutionAuthor) values (1);
 insert into `group` (groupName) values ('Nazwa');
 
@@ -60,3 +66,14 @@ insert into studentGroup values (3,2);
 
 select * from student;
 select * from solution;
+
+update student set studentName = 'Krzysztof', studentSurname = 'Ciechanowski', studentEmail = 'k.ciech@gmail.com', studentLogin = 'k.ciech' where studentId = 2;
+
+
+
+
+show variables like '%colla%';
+show variables like '%charac%';
+
+
+

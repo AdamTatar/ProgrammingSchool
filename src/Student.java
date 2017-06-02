@@ -1,6 +1,14 @@
 
 public class Student {
 
+	@Override
+	public String toString() {
+		return "Student o id = " + studentId + ", imię = " + studentName + ", nazwisko = " + studentSurname
+				+ ", e-mail = " + studentEmail + ", GitHub login = " + studentLogin;
+	}
+
+
+
 	private Integer studentId;
 	private String studentName ;
 	private String studentSurname;
